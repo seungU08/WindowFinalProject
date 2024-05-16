@@ -1,0 +1,53 @@
+#pragma once
+#include "GameObject.h"
+
+template<typename T>
+class CAbstractFactory
+{
+public:
+	CAbstractFactory() {}
+	~CAbstractFactory() {}
+
+public:
+	static CGameObject* Create()
+	{
+		CGameObject* pGameObject = new T;
+		pGameObject->Initialize();
+
+		return pGameObject;
+	}
+
+	static CGameObject* Create(float fX, float fY)
+	{
+		CGameObject* pGameObject = new T;
+		pGameObject->Set_Pos(fX, fY);
+		pGameObject->Initialize();
+
+		return pGameObject;
+	}
+
+	static CGameObject* Create(float fX, float fY, DIRECTION eDir)
+	{
+		CGameObject* pGameObject = new T;
+
+		pGameObject->Set_Pos(fX, fY);
+		pGameObject->Initialize();
+
+
+		pGameObject->Set_Direction(eDir);
+		return pGameObject;
+	}
+
+	static CGameObject* Create(float fX, float fY, float fAngle)
+	{
+		CGameObject* pGameObject = new T;
+		pGameObject->Initialize();
+		pGameObject->Set_Pos(fX, fY);
+		pGameObject->Set_Angle(fAngle);
+
+		return pGameObject;
+	}
+
+
+};
+
