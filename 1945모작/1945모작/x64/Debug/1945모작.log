@@ -1,2 +1,29 @@
-﻿  Level_GamePlay.cpp
-  1945모작.vcxproj -> C:\Users\kkth3\OneDrive\문서\학교 수업\3학년\윈플\윈플 기말프로젝트\1945모작\x64\Debug\1945모작.exe
+﻿  Player.cpp
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(112,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(111,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(105,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(104,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(189,36): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(198,36): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(206,36): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(214,36): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\1945모작\Player.cpp(222,36): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
+  1945모작.vcxproj -> C:\Users\kkth3\OneDrive\문서\GitHub\WindowFinalProject\1945모작\x64\Debug\1945모작.exe

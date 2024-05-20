@@ -24,6 +24,7 @@ void CPlayer::Initialize()
 	m_tInfo.fCY = 64.f;
 	m_fSpeed = 3.f;
 	m_eCurState = STATE_IDLE;
+	m_iFrameCnt = 3;
 }
 
 int CPlayer::Update()
@@ -105,7 +106,7 @@ void CPlayer::Render(HDC hDC)
 		62,									//복사 받을 가로 길이
 		64,									//복사 받을 세로 길이
 		PlayerDC,							//복사할 비트맵 DC
-		62 * 3,								//비트맵 이미지의 왼쪽 X 좌표
+		62 * m_iFrameCnt,								//비트맵 이미지의 왼쪽 X 좌표
 		0,									//비트맵 이미지의 위쪽 Y 좌표
 		m_tInfo.fCX,						//복사할 이미지의 가로 사이즈 
 		m_tInfo.fCY,						//복사할 이미지의 세로 사이즈
@@ -120,47 +121,51 @@ void CPlayer::Release(void)
 void CPlayer::Key_Input()
 {
 	if (CKey_Manager::Get_Instance()->Key_Pressing(VK_LEFT)) {
-		if (m_tInfo.fX > 0.f + m_tInfo.fCX/2.f) {
+		if (m_tInfo.fX > 0.f + m_tInfo.fCX / 2.f) {
 			m_tInfo.fX -= m_fSpeed;
 			m_eDir = DIR_LEFT;
 			m_eCurState = STATE_LEFT;
+			if (m_iFrameCnt > 0)
+				m_iFrameCnt--;
 		}
-		++m_iLeftCnt;
 	}
-	else if(CKey_Manager::Get_Instance()->Key_Pressing(VK_RIGHT)) {
+	else if (CKey_Manager::Get_Instance()->Key_Pressing(VK_RIGHT)) {
 		if (m_tInfo.fX < WINCX - m_tInfo.fCX / 2.f) {
 			m_tInfo.fX += m_fSpeed;
 			m_eDir = DIR_RIGHT;
 			m_eCurState = STATE_RIGHT;
+			if (m_iFrameCnt < 6)
+				m_iFrameCnt++;
 		}
-		++m_iRightCnt;
 	}
-	else if (CKey_Manager::Get_Instance()->Key_Pressing(VK_UP)) {
+	else {
+		if (m_iFrameCnt < 3)
+			m_iFrameCnt++;
+		else if (m_iFrameCnt > 3)
+			m_iFrameCnt--;
+	}
+
+
+	if (CKey_Manager::Get_Instance()->Key_Pressing(VK_UP)) {
 		if (m_tInfo.fY > 0.f + m_tInfo.fCY / 2.f) {
 			m_tInfo.fY -= m_fSpeed;
 			m_eDir = DIR_UP;
 			m_eCurState = STATE_DASH;
 		}
 	}
-	else if (CKey_Manager::Get_Instance()->Key_Pressing(VK_DOWN)) {
-		if (m_tInfo.fY < WINCY-m_tInfo.fCY / 2.f) {
+
+	if (CKey_Manager::Get_Instance()->Key_Pressing(VK_DOWN)) {
+		if (m_tInfo.fY < WINCY - m_tInfo.fCY / 2.f) {
 			m_tInfo.fY += m_fSpeed;
 			m_eDir = DIR_DOWN;
 			m_eCurState = STATE_BACK;
 		}
 	}
-	else if (CKey_Manager::Get_Instance()->Key_Down('a')) {
+	if (CKey_Manager::Get_Instance()->Key_Down('a')) {
 
 		Shot();
 	}
-	else {
-		if (m_iLeftCnt > 0) {
-			--m_iLeftCnt;
-		}
-		if (m_iRightCnt > 0) {
-			--m_iRightCnt;
-		}
-	}
+
 
 
 

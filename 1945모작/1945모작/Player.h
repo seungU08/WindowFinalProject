@@ -38,7 +38,6 @@ private:
 	STATE					m_ePreState;
 	STATE					m_eCurState;
 
-	int						m_iLeftCnt = 0;
-	int						m_iRightCnt = 0;
+	int						m_iFrameCnt;
 };
 
