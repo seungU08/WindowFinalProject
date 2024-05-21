@@ -48,4 +48,6 @@ void CLevel_GamePlay::Render(HDC hDC)
 void CLevel_GamePlay::Release(void)
 {
 	CObject_Manager::Get_Instance()->DeleteID(OBJ_PLAYER);
+	CObject_Manager::Get_Instance()->DeleteID(OBJ_PLAYERBULLET);
+
 }

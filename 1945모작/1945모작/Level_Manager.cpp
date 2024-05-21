@@ -24,6 +24,7 @@ void CLevel_Manager::Level_Change(LEVEL_ID eID)
 			break;
 
 		case LEVEL_MENU:
+			m_pLevel = new CLevel_Menu;
 			break;
 
 		case LEVEL_GAMEPLAY:

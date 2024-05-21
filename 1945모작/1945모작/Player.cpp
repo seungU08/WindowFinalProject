@@ -19,6 +19,11 @@ void CPlayer::Initialize()
 {
 
 	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Player/FinalPlayer(62X64X7ea).bmp", L"PLAYER_IMAGE");
+	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/MainBullet/MainBullet(24X72X4).bmp", L"MAINBULLET_IMAGE");
+	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SubBullet/SubBullet(24X63X4).bmp", L"SUBBULLET_IMAGE");
+	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SideBullet/SideBullet_LEFT(24X42X4).bmp", L"SIDELBULLET_IMAGE");
+	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SideBullet/SideBullet_RIGHT(24X42X4).bmp", L"SIDERBULLET_IMAGE");
+
 	m_dwShotDelay = 100;
 	m_pFrameKey = L"PLAYER_IMAGE";
 	m_tInfo.fX = 300.f;
@@ -26,15 +31,15 @@ void CPlayer::Initialize()
 	m_tInfo.fCX = 62.f;
 	m_tInfo.fCY = 64.f;
 	m_fSpeed = 3.f;
-	m_eCurState = STATE_IDLE;
 	m_iFrameCnt = 3;
-	m_eBulletKind = PB_NORMAL;
 	m_dwShotCount = GetTickCount64();
 	m_dwShotDelay = 150;
+	m_ePlayerShotState = PLAYER_FINAL;
 }
 
 int CPlayer::Update()
 {
+
 	Key_Input();
 	__super::Update_Rect();
 
@@ -77,7 +82,6 @@ void CPlayer::Key_Input()
 		if (m_tInfo.fX > 0.f + m_tInfo.fCX / 2.f) {
 			m_tInfo.fX -= m_fSpeed;
 			m_eDir = DIR_LEFT;
-			m_eCurState = STATE_LEFT;
 			if (m_iFrameCnt > 0)
 				m_iFrameCnt--;
 		}
@@ -86,7 +90,6 @@ void CPlayer::Key_Input()
 		if (m_tInfo.fX < WINCX - m_tInfo.fCX / 2.f) {
 			m_tInfo.fX += m_fSpeed;
 			m_eDir = DIR_RIGHT;
-			m_eCurState = STATE_RIGHT;
 			if (m_iFrameCnt < 6)
 				m_iFrameCnt++;
 		}
@@ -103,7 +106,6 @@ void CPlayer::Key_Input()
 		if (m_tInfo.fY > 0.f + m_tInfo.fCY / 2.f) {
 			m_tInfo.fY -= m_fSpeed;
 			m_eDir = DIR_UP;
-			m_eCurState = STATE_DASH;
 		}
 	}
 
@@ -111,75 +113,39 @@ void CPlayer::Key_Input()
 		if (m_tInfo.fY < WINCY - m_tInfo.fCY / 2.f) {
 			m_tInfo.fY += m_fSpeed;
 			m_eDir = DIR_DOWN;
-			m_eCurState = STATE_BACK;
+		
 		}
 	}
 
 	if (GetTickCount64() - m_dwShotCount > m_dwShotDelay) {
-
-		m_dwShotCount = GetTickCount64();
 		Shot();
+		m_dwShotCount = GetTickCount64();
+		
 	}
 
-
+	
 
 }
 
 void CPlayer::Shot()
 {
-	CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET,CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX,m_tInfo.fY-10.f,m_eBulletKind));
+	CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET,CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX,m_tInfo.fY-30.f, PB_NORMAL));
+	if (m_ePlayerShotState == PLAYER_UPGRADE) {
 
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET, CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX - 10.f, m_tInfo.fY - 20.f, PB_LSUB));
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET, CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX + 10.f, m_tInfo.fY - 20.f, PB_RSUB));
+
+	}
+	if (m_ePlayerShotState == PLAYER_FINAL) {
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET, CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX - 10.f, m_tInfo.fY - 20.f, PB_LSUB));
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET, CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX + 10.f, m_tInfo.fY - 20.f, PB_RSUB));
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET, CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX + 22.f, m_tInfo.fY, PB_RSIDE));
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET, CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX - 22.f, m_tInfo.fY, PB_LSIDE));
+	}
 
 }
 
 void CPlayer::Motion_Change()
 {
-	if (m_ePreState != m_eCurState)
-	{
-		switch (m_eCurState)
-		{
-		case STATE_IDLE:
-			m_tFrame.iFrameStart = 0;
-			m_tFrame.iFrameEnd = 3;
-			m_tFrame.iMotion = 0;
-			m_tFrame.dwSpeed = 200;
-			m_tFrame.dwTime = GetTickCount64();
-
-			break;
-
-		case STATE_LEFT:
-			m_tFrame.iFrameStart = 0;
-			m_tFrame.iFrameEnd = 5;
-			m_tFrame.iMotion = 1;
-			m_tFrame.dwSpeed = 200;
-			m_tFrame.dwTime = GetTickCount64();
-			break;
-
-		case STATE_RIGHT:
-			m_tFrame.iFrameStart = 0;
-			m_tFrame.iFrameEnd = 5;
-			m_tFrame.iMotion = 2;
-			m_tFrame.dwSpeed = 200;
-			m_tFrame.dwTime = GetTickCount64();
-			break;
-
-		case STATE_DASH:
-			m_tFrame.iFrameStart = 0;
-			m_tFrame.iFrameEnd = 1;
-			m_tFrame.iMotion = 3;
-			m_tFrame.dwSpeed = 200;
-			m_tFrame.dwTime = GetTickCount64();
-			break;
-
-		case STATE_BACK:
-			m_tFrame.iFrameStart = 0;
-			m_tFrame.iFrameEnd = 3;
-			m_tFrame.iMotion = 4;
-			m_tFrame.dwSpeed = 200;
-			m_tFrame.dwTime = GetTickCount64();
-			break;
-		}
-
-		m_ePreState = m_eCurState;
-	}
+	
 }

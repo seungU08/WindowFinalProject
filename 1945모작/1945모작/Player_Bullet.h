@@ -19,6 +19,7 @@ public:
 	void	Move_Player_Frame();
 
 public:
+
 	void Set_BulletKind(PLAYER_BULLET eBullet) { m_eBulletKind = eBullet; };
 
 
@@ -31,6 +32,7 @@ private:
 	float					m_fMAX_X = 580.f;
 	float					m_fMAX_Y = 850.f;
 
+	int						m_iMoveRange;
 	int						m_iFrameCnt;
 	PLAYER_BULLET			m_eBulletKind;
 };

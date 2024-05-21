@@ -58,6 +58,12 @@
     <Filter Include="03.Object_Manager\GameObjects\03-02.Player_Bullet">
       <UniqueIdentifier>{6d64ce0e-642c-4193-aa58-be5666189c8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Object_Manager\GameObjects\03-10.Button">
+      <UniqueIdentifier>{14accb74-cb41-4d2e-8173-4eaf23d7f147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object_Manager\GameObjects\03-11.UI">
+      <UniqueIdentifier>{1a658eaa-619a-45e4-9be3-601d59f36705}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -120,6 +126,12 @@
     <ClInclude Include="Player_Bullet.h">
       <Filter>03.Object_Manager\GameObjects\03-02.Player_Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>03.Object_Manager\GameObjects\03-10.Button</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>03.Object_Manager\GameObjects\03-11.UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1945모작.cpp">
@@ -166,6 +178,12 @@
     </ClCompile>
     <ClCompile Include="Player_Bullet.cpp">
       <Filter>03.Object_Manager\GameObjects\03-02.Player_Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>03.Object_Manager\GameObjects\03-10.Button</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>03.Object_Manager\GameObjects\03-11.UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

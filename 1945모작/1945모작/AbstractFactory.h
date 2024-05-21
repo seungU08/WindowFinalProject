@@ -42,8 +42,9 @@ public:
 	{
 		CGameObject* pGameObject = new T;
 		pGameObject->Set_Pos(fX, fY);
-		pGameObject->Initialize();
 		dynamic_cast<CPlayer_Bullet*>(pGameObject)->Set_BulletKind(eBullet);
+		pGameObject->Initialize();
+	
 
 		return pGameObject;
 	}

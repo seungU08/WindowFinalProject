@@ -19,7 +19,7 @@ void CMainGame::Initialize(void)
 {
 	m_hDC = GetDC(g_hWnd);
 	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"BackBuffer");
-	CLevel_Manager::Get_Instance()->Level_Change(LEVEL_GAMEPLAY);
+	CLevel_Manager::Get_Instance()->Level_Change(LEVEL_MENU);
 }
 
 void CMainGame::Update(void)

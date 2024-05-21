@@ -134,6 +134,7 @@
     <ClInclude Include="1945모작.h" />
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Bmp_Manager.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Key_Manager.h" />
     <ClInclude Include="Level_GamePlay.h" />
     <ClInclude Include="Define.h" />
@@ -151,10 +152,12 @@
     <ClInclude Include="Player_Bullet.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1945모작.cpp" />
     <ClCompile Include="Bmp_Manager.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Key_Manager.cpp" />
     <ClCompile Include="Level_GamePlay.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -171,6 +174,7 @@
     </ClCompile>
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_Bullet.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="1945모작.rc" />

@@ -14,6 +14,7 @@ CLevel_Logo::~CLevel_Logo()
 
 void CLevel_Logo::Initialize()
 {
+
 }
 
 int CLevel_Logo::Update()

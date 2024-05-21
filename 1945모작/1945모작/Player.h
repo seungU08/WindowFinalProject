@@ -4,7 +4,7 @@
 class CPlayer : public CGameObject
 {
 public:
-	enum STATE { STATE_IDLE, STATE_LEFT, STATE_RIGHT, STATE_DASH, STATE_BACK, STATE_END };
+	enum SHOT_STATE {PLAYER_INIT, PLAYER_UPGRADE,PLAYER_FINAL,PLAYER_END};
 
 public:
 	CPlayer();
@@ -20,7 +20,7 @@ public:
 	void	Key_Input();
 	void	Shot();
 	void	Motion_Change();
-	void	Move_Player_Frame();
+	//void	Move_Player_Frame();
 
 
 private:
@@ -36,10 +36,9 @@ private:
 	float					m_fMAX_Y = 850.f;
 
 
-	STATE					m_ePreState;
-	STATE					m_eCurState;
-	PLAYER_BULLET			m_eBulletKind;
-
+	//STATE					m_ePreState;
+	//STATE					m_eCurState;
+	SHOT_STATE				m_ePlayerShotState;
 
 	int						m_iFrameCnt;
 };
