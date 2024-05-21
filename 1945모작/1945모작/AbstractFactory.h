@@ -38,6 +38,17 @@ public:
 		return pGameObject;
 	}
 
+	static CGameObject* CreateBullet(float fX, float fY, PLAYER_BULLET eBullet)
+	{
+		CGameObject* pGameObject = new T;
+		pGameObject->Set_Pos(fX, fY);
+		pGameObject->Initialize();
+		dynamic_cast<CPlayer_Bullet*>(pGameObject)->Set_BulletKind(eBullet);
+
+		return pGameObject;
+	}
+
+
 	static CGameObject* Create(float fX, float fY, float fAngle)
 	{
 		CGameObject* pGameObject = new T;

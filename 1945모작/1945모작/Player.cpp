@@ -2,6 +2,9 @@
 #include "Player.h"
 #include "Bmp_Manager.h"
 #include "Key_Manager.h"
+#include "Object_Manager.h"
+#include "AbstractFactory.h"
+#include "Player_Bullet.h"
 
 CPlayer::CPlayer()
 {
@@ -25,6 +28,9 @@ void CPlayer::Initialize()
 	m_fSpeed = 3.f;
 	m_eCurState = STATE_IDLE;
 	m_iFrameCnt = 3;
+	m_eBulletKind = PB_NORMAL;
+	m_dwShotCount = GetTickCount64();
+	m_dwShotDelay = 150;
 }
 
 int CPlayer::Update()
@@ -47,66 +53,13 @@ void CPlayer::Render(HDC hDC)
 	//Rectangle(hDC, m_tInfo.fX - m_tInfo.fCX / 2, m_tInfo.fY - m_tInfo.fCY / 2, m_tInfo.fX + m_tInfo.fCX / 2, m_tInfo.fY + m_tInfo.fCY / 2);
 	//피격 범위용 Rect => 조절 필요
 
-	//switch (m_eCurState) {
-	//case STATE_LEFT:
-
-	//	GdiTransparentBlt(hDC,
-	//		(int)m_tInfo.fX - m_tInfo.fCX / 2,	//복사 받을 X 위치
-	//		(int)m_tInfo.fY - m_tInfo.fCY / 2,	//복사 받을 Y 위치
-	//		62,									//복사 받을 가로 길이
-	//		64,									//복사 받을 세로 길이
-	//		PlayerDC,							//복사할 비트맵 DC
-	//		62 * 3,								//비트맵 이미지의 왼쪽 X 좌표
-	//		0,									//비트맵 이미지의 위쪽 Y 좌표
-	//		m_tInfo.fCX,						//복사할 이미지의 가로 사이즈 
-	//		m_tInfo.fCY,						//복사할 이미지의 세로 사이즈
-	//		RGB(255, 255, 255));
-
-	//	break;
-	//case STATE_RIGHT:
-	//	break;
-	//case STATE_DASH:
-	//	break;
-
-	//case STATE_BACK:
-	//	break;
-
-	//case STATE_IDLE:
-	//	GdiTransparentBlt(hDC,
-	//		(int)m_tInfo.fX - m_tInfo.fCX / 2,	//복사 받을 X 위치
-	//		(int)m_tInfo.fY - m_tInfo.fCY / 2,	//복사 받을 Y 위치
-	//		62,									//복사 받을 가로 길이
-	//		64,									//복사 받을 세로 길이
-	//		PlayerDC,							//복사할 비트맵 DC
-	//		62 * 3,								//비트맵 이미지의 왼쪽 X 좌표
-	//		0,									//비트맵 이미지의 위쪽 Y 좌표
-	//		m_tInfo.fCX,						//복사할 이미지의 가로 사이즈 
-	//		m_tInfo.fCY,						//복사할 이미지의 세로 사이즈
-	//		RGB(255, 255, 255));
-	//	break;
-
-	//default:
-	//	GdiTransparentBlt(hDC,
-	//		(int)m_tInfo.fX - m_tInfo.fCX / 2,	//복사 받을 X 위치
-	//		(int)m_tInfo.fY - m_tInfo.fCY / 2,	//복사 받을 Y 위치
-	//		62,									//복사 받을 가로 길이
-	//		64,									//복사 받을 세로 길이
-	//		PlayerDC,							//복사할 비트맵 DC
-	//		62 * 3,								//비트맵 이미지의 왼쪽 X 좌표
-	//		0,									//비트맵 이미지의 위쪽 Y 좌표
-	//		m_tInfo.fCX,						//복사할 이미지의 가로 사이즈 
-	//		m_tInfo.fCY,						//복사할 이미지의 세로 사이즈
-	//		RGB(255, 255, 255));
-	//	break;
-
-	//}
 	GdiTransparentBlt(hDC,
 		(int)m_tInfo.fX - m_tInfo.fCX / 2,	//복사 받을 X 위치
 		(int)m_tInfo.fY - m_tInfo.fCY / 2,	//복사 받을 Y 위치
 		62,									//복사 받을 가로 길이
 		64,									//복사 받을 세로 길이
 		PlayerDC,							//복사할 비트맵 DC
-		62 * m_iFrameCnt,								//비트맵 이미지의 왼쪽 X 좌표
+		62 * m_iFrameCnt,					//비트맵 이미지의 왼쪽 X 좌표
 		0,									//비트맵 이미지의 위쪽 Y 좌표
 		m_tInfo.fCX,						//복사할 이미지의 가로 사이즈 
 		m_tInfo.fCY,						//복사할 이미지의 세로 사이즈
@@ -161,11 +114,12 @@ void CPlayer::Key_Input()
 			m_eCurState = STATE_BACK;
 		}
 	}
-	if (CKey_Manager::Get_Instance()->Key_Down('a')) {
 
+	if (GetTickCount64() - m_dwShotCount > m_dwShotDelay) {
+
+		m_dwShotCount = GetTickCount64();
 		Shot();
 	}
-
 
 
 
@@ -173,6 +127,9 @@ void CPlayer::Key_Input()
 
 void CPlayer::Shot()
 {
+	CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYERBULLET,CAbstractFactory<CPlayer_Bullet>::CreateBullet(m_tInfo.fX,m_tInfo.fY-10.f,m_eBulletKind));
+
+
 }
 
 void CPlayer::Motion_Change()

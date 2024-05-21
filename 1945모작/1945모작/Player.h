@@ -26,6 +26,7 @@ public:
 private:
 
 	DWORD					m_dwShotDelay;
+	DWORD					m_dwShotCount;
 	const TCHAR*			m_pFrameKey;
 
 	float					m_fMIN_X = 30.f;
@@ -37,6 +38,8 @@ private:
 
 	STATE					m_ePreState;
 	STATE					m_eCurState;
+	PLAYER_BULLET			m_eBulletKind;
+
 
 	int						m_iFrameCnt;
 };
