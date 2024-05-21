@@ -14,9 +14,16 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
+
+public:
+	bool GetButtonDown() { return m_Choice; };
+
 private:
 	int			m_iDrawID;
 	bool		m_Choice;
 	DWORD		dwtime;
+
+
+
 };
 

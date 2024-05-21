@@ -23,12 +23,20 @@ public:
 	void		Set_Direction(DIRECTION eDir) { m_eDir = eDir; }
 	void		Set_Dead() { m_bDead = true; }
 	void		Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
+	void		Set_Size(float fCX, float fCY) { m_tInfo.fCX = fCX, m_tInfo.fCY = fCY; };
 
 	void		Set_Target(CGameObject* _pTarget) { m_pTarget = _pTarget; }
 
 	void		Set_X(float _fX) { m_tInfo.fX += _fX; }
 	void		Set_Y(float _fY) { m_tInfo.fY += _fY; }
 	void		Set_FrameKey(const TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
+	void		Set_Frame(int iFrameEnd, DWORD FrameSpeed) {
+	
+		m_tFrame.iFrameStart = 0;
+		m_tFrame.iFrameEnd = iFrameEnd;
+		m_tFrame.dwSpeed = FrameSpeed;
+		m_tFrame.dwTime = GetTickCount64();
+	};
 	const RECT* Get_Rect() { return &m_tRect; }
 	INFO		Get_Info() { return m_tInfo; }
 	bool		Get_Dead() { return m_bDead; }

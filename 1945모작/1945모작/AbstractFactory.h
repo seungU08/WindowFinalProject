@@ -38,6 +38,28 @@ public:
 		return pGameObject;
 	}
 
+
+	static CGameObject* Create_UI(float fX, float fY, float fCX, float fCY,int Frames,DWORD FrameSpeed)
+	{
+		CGameObject* pGameObject = new T;
+		pGameObject->Set_Pos(fX, fY);
+		pGameObject->Set_Size(fCX, fCY);
+		pGameObject->Set_Frame(Frames, FrameSpeed);
+		pGameObject->Initialize();
+
+		return pGameObject;
+	}
+
+	static CGameObject* Create_UI(float fX, float fY, float fCX, float fCY)
+	{
+		CGameObject* pGameObject = new T;
+		pGameObject->Set_Pos(fX, fY);
+		pGameObject->Set_Size(fCX, fCY);
+		pGameObject->Initialize();
+
+		return pGameObject;
+	}
+
 	static CGameObject* CreateBullet(float fX, float fY, PLAYER_BULLET eBullet)
 	{
 		CGameObject* pGameObject = new T;

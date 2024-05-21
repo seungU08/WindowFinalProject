@@ -19,6 +19,11 @@ public:
 			return m_ObjectList[OBJ_PLAYER].front();
 	}
 
+	list<CGameObject*>* Get_List(OBJ_ID eID) {
+		if (!List_Empty(eID))
+			return &m_ObjectList[eID];
+	}
+
 	bool List_Empty(OBJ_ID eID) {
 		if (m_ObjectList[eID].empty() == true) {
 			return true;

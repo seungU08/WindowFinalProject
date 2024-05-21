@@ -21,7 +21,6 @@ void CPlayer_Bullet::Initialize()
 	case PB_NORMAL:
 		m_tInfo.fCX = 24.f;
 		m_tInfo.fCY = 72.f;
-		//CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/MainBullet/MainBullet(24X72X4).bmp", L"MAINBULLET_IMAGE");
 		m_pFrameKey = L"MAINBULLET_IMAGE";
 
 		break;
@@ -29,14 +28,12 @@ void CPlayer_Bullet::Initialize()
 	case PB_LSUB:
 		m_tInfo.fCX = 24.f;
 		m_tInfo.fCY = 63.f;
-		//CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SubBullet/SubBullet(24X63X4).bmp", L"SUBBULLET_IMAGE");
 		m_pFrameKey = L"SUBBULLET_IMAGE";
 		break;
 
 	case PB_RSUB:
 		m_tInfo.fCX = 24.f;
 		m_tInfo.fCY = 63.f;
-		//CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SubBullet/SubBullet(24X63X4).bmp", L"SUBBULLET_IMAGE");
 		m_pFrameKey = L"SUBBULLET_IMAGE";
 		break;
 
@@ -44,14 +41,12 @@ void CPlayer_Bullet::Initialize()
 	case PB_LSIDE:
 		m_tInfo.fCX = 24.f;
 		m_tInfo.fCY = 42.f;
-		//CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SideBullet/SideBullet_LEFT(24X42X4).bmp", L"SIDELBULLET_IMAGE");
 		m_pFrameKey = L"SIDELBULLET_IMAGE";
 		break;
 
 	case PB_RSIDE:
 		m_tInfo.fCX = 24.f;
 		m_tInfo.fCY = 42.f;
-		//CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Bullet/PlayerBullet/SideBullet/SideBullet_RIGHT(24X42X4).bmp", L"SIDERBULLET_IMAGE");
 		m_pFrameKey = L"SIDERBULLET_IMAGE";
 		break;
 

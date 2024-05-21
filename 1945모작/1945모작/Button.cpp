@@ -22,6 +22,8 @@ void CButton::Initialize()
 
 int CButton::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
 	__super::Update_Rect();
 	return OBJ_NOEVENT;
 }
