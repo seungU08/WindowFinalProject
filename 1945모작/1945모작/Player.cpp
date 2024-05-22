@@ -35,11 +35,13 @@ void CPlayer::Initialize()
 	m_dwShotCount = GetTickCount64();
 	m_dwShotDelay = 150;
 	m_ePlayerShotState = PLAYER_FINAL;
+	m_iLife = 4;
+
 }
 
 int CPlayer::Update()
 {
-
+	++m_iScore;
 	Key_Input();
 	__super::Update_Rect();
 

@@ -40,15 +40,6 @@
     <Filter Include="04.Level_Manager\Levels">
       <UniqueIdentifier>{113b98ff-eee8-48cd-857c-7036838e3836}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Level_Manager\Levels\Logo_Level">
-      <UniqueIdentifier>{3226753f-03b2-4ed5-bf73-05cf989632f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.Level_Manager\Levels\Menu_Level">
-      <UniqueIdentifier>{9292c3a6-e83b-4a95-a735-3879407357c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.Level_Manager\Levels\GamePlay_Level">
-      <UniqueIdentifier>{abae13a1-d0fd-4088-8f3e-b7fc985f2fdc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Key_Manager">
       <UniqueIdentifier>{6aca593c-c6b4-483c-9b69-4beee61232df}</UniqueIdentifier>
     </Filter>
@@ -63,6 +54,15 @@
     </Filter>
     <Filter Include="03.Object_Manager\GameObjects\03-11.UI">
       <UniqueIdentifier>{1a658eaa-619a-45e4-9be3-601d59f36705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Level_Manager\Levels\04-01.GamePlay_Level">
+      <UniqueIdentifier>{abae13a1-d0fd-4088-8f3e-b7fc985f2fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Level_Manager\Levels\04-02.GameEnd_Level">
+      <UniqueIdentifier>{3226753f-03b2-4ed5-bf73-05cf989632f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Level_Manager\Levels\04-00.Menu_Level">
+      <UniqueIdentifier>{9292c3a6-e83b-4a95-a735-3879407357c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -105,14 +105,14 @@
     <ClInclude Include="Level.h">
       <Filter>04.Level_Manager\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="Level_Logo.h">
-      <Filter>04.Level_Manager\Levels\Logo_Level</Filter>
+    <ClInclude Include="Level_GameEnd.h">
+      <Filter>04.Level_Manager\Levels\04-02.GameEnd_Level</Filter>
     </ClInclude>
     <ClInclude Include="Level_Menu.h">
-      <Filter>04.Level_Manager\Levels\Menu_Level</Filter>
+      <Filter>04.Level_Manager\Levels\04-00.Menu_Level</Filter>
     </ClInclude>
     <ClInclude Include="Level_GamePlay.h">
-      <Filter>04.Level_Manager\Levels\GamePlay_Level</Filter>
+      <Filter>04.Level_Manager\Levels\04-01.GamePlay_Level</Filter>
     </ClInclude>
     <ClInclude Include="Key_Manager.h">
       <Filter>05.Key_Manager</Filter>
@@ -161,14 +161,14 @@
     <ClCompile Include="Level.cpp">
       <Filter>04.Level_Manager\Levels</Filter>
     </ClCompile>
-    <ClCompile Include="Level_Logo.cpp">
-      <Filter>04.Level_Manager\Levels\Logo_Level</Filter>
+    <ClCompile Include="Level_GameEnd.cpp">
+      <Filter>04.Level_Manager\Levels\04-02.GameEnd_Level</Filter>
     </ClCompile>
     <ClCompile Include="Level_Menu.cpp">
-      <Filter>04.Level_Manager\Levels\Menu_Level</Filter>
+      <Filter>04.Level_Manager\Levels\04-00.Menu_Level</Filter>
     </ClCompile>
     <ClCompile Include="Level_GamePlay.cpp">
-      <Filter>04.Level_Manager\Levels\GamePlay_Level</Filter>
+      <Filter>04.Level_Manager\Levels\04-01.GamePlay_Level</Filter>
     </ClCompile>
     <ClCompile Include="Key_Manager.cpp">
       <Filter>05.Key_Manager</Filter>

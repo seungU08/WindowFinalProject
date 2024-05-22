@@ -88,11 +88,7 @@ int CLevel_Menu::Update()
 
 	if (m_bDoOnce) {
 		if (dynamic_cast<CButton*>(CObject_Manager::Get_Instance()->Get_List(OBJ_BUTTON)->front())->GetButtonDown())
-
-
-
 			CLevel_Manager::Get_Instance()->Level_Change(LEVEL_GAMEPLAY);
-
 	}
 
 	CObject_Manager::Get_Instance()->Update();

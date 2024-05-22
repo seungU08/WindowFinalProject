@@ -141,7 +141,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="Level_Logo.h" />
+    <ClInclude Include="Level_GameEnd.h" />
     <ClInclude Include="Level_Manager.h" />
     <ClInclude Include="Level_Menu.h" />
     <ClInclude Include="MainGame.h" />
@@ -162,7 +162,7 @@
     <ClCompile Include="Level_GamePlay.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="Level_Logo.cpp" />
+    <ClCompile Include="Level_GameEnd.cpp" />
     <ClCompile Include="Level_Manager.cpp" />
     <ClCompile Include="Level_Menu.cpp" />
     <ClCompile Include="MainGame.cpp" />

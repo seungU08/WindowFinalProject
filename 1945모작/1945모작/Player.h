@@ -20,6 +20,9 @@ public:
 	void	Key_Input();
 	void	Shot();
 	void	Motion_Change();
+
+	int		Get_Score() { return m_iScore; };
+	int		Get_Life() { return m_iLife; };
 	//void	Move_Player_Frame();
 
 
@@ -39,7 +42,10 @@ private:
 	//STATE					m_ePreState;
 	//STATE					m_eCurState;
 	SHOT_STATE				m_ePlayerShotState;
-
 	int						m_iFrameCnt;
+
+	int						m_iLife;
+	int						m_iScore;
+
 };
 
