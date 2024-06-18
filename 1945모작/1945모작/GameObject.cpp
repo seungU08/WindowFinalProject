@@ -22,13 +22,13 @@ void CGameObject::Update_Rect()
 
 void CGameObject::Move_Frame()
 {
-	if (m_tFrame.dwTime + m_tFrame.dwSpeed < GetTickCount())
+	if (m_tFrame.dwTime + m_tFrame.dwSpeed < GetTickCount64())
 	{
 		++m_tFrame.iFrameStart;
 
 		if (m_tFrame.iFrameStart > m_tFrame.iFrameEnd)
 			m_tFrame.iFrameStart = 0;
 
-		m_tFrame.dwTime = GetTickCount();
+		m_tFrame.dwTime = GetTickCount64();
 	}
 }

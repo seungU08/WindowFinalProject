@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "Player.h"
+#include "Enemy_1.h"
+#include "Enemy_2.h"
 #include "Bmp_Manager.h"
 #include "Object_Manager.h"
 #include "Level_GamePlay.h"
@@ -26,6 +28,11 @@ void CLevel_GamePlay::Initialize()
 	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/UI/Life(30X40X4).bmp", L"LIFE");
 
 	CObject_Manager::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create());
+
+	
+	CObject_Manager::Get_Instance()->Add_Object(OBJ_ENEMY_1, CAbstractFactory<CEnemy_1>::Create(100.f - 51, 200.f + 51));
+	CObject_Manager::Get_Instance()->Add_Object(OBJ_ENEMY_2, CAbstractFactory<CEnemy_2>::Create(100, 0));
+
 	
 	CGameObject* pScoreUI = CAbstractFactory<CUI>::Create_UI(0.f, 0.f, 460.f, 46.f);
 	pScoreUI->Set_FrameKey(L"SCORE");
@@ -36,6 +43,8 @@ void CLevel_GamePlay::Initialize()
 	pLifeUI->Set_FrameKey(L"LIFE");
 	dynamic_cast<CUI*>(pLifeUI)->Set_State(UI_LIFE);
 	CObject_Manager::Get_Instance()->Add_Object(OBJ_UI, pLifeUI);
+	
+	Enemy_Count = GetTickCount64();
 
 }
 
@@ -44,6 +53,12 @@ int CLevel_GamePlay::Update()
 	if(m_iMap_Update< MAP_SizeY - WINCY-1)
 		++m_iMap_Update;
 	CObject_Manager::Get_Instance()->Update();
+	if ((GetTickCount64() - Enemy_Count)%3000  == 0){
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_ENEMY_2, CAbstractFactory<CEnemy_2>::Create(100, 0));
+	}
+	if ((GetTickCount64() - Enemy_Count) % 2000 == 0) {
+		CObject_Manager::Get_Instance()->Add_Object(OBJ_ENEMY_1, CAbstractFactory<CEnemy_1>::Create(100.f - 51, 200.f + 51));
+	}
 	return 0;
 }
 

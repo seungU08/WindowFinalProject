@@ -64,6 +64,15 @@
     <Filter Include="04.Level_Manager\Levels\04-00.Menu_Level">
       <UniqueIdentifier>{9292c3a6-e83b-4a95-a735-3879407357c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Object_Manager\GameObjects\03-21 Enemy_1">
+      <UniqueIdentifier>{b4182f53-8947-4cd1-b73a-04f0f8fd4e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object_Manager\GameObjects\03-22 Enemy_Bullet">
+      <UniqueIdentifier>{d063afc3-3601-4a69-88f5-1e5a0712301f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object_Manager\GameObjects\03-31 Enemy_2">
+      <UniqueIdentifier>{8f2d2c96-85fc-40e2-9b58-2d11b221cb0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -132,6 +141,15 @@
     <ClInclude Include="UI.h">
       <Filter>03.Object_Manager\GameObjects\03-11.UI</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_1.h">
+      <Filter>03.Object_Manager\GameObjects\03-21 Enemy_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Bullet.h">
+      <Filter>03.Object_Manager\GameObjects\03-22 Enemy_Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_2.h">
+      <Filter>03.Object_Manager\GameObjects\03-31 Enemy_2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1945모작.cpp">
@@ -184,6 +202,15 @@
     </ClCompile>
     <ClCompile Include="UI.cpp">
       <Filter>03.Object_Manager\GameObjects\03-11.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_1.cpp">
+      <Filter>03.Object_Manager\GameObjects\03-21 Enemy_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Bullet.cpp">
+      <Filter>03.Object_Manager\GameObjects\03-22 Enemy_Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_2.cpp">
+      <Filter>03.Object_Manager\GameObjects\03-31 Enemy_2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

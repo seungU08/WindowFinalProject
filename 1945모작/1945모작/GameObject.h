@@ -58,6 +58,7 @@ protected:
 	bool		m_bDead;
 
 	float		m_fSpeed;
+	float		m_fSpeed_Y;
 	float		m_fAngle;
 	int			m_iHp;
 	int			m_iAttack;

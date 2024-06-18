@@ -17,5 +17,9 @@ public:
 private:
 	int m_iMap_Update = 0;
 	int m_iScore;
+
+	DWORD					Enemy1_Delay;
+	DWORD					Enemy2_Delay;
+	DWORD					Enemy_Count;
 };
 

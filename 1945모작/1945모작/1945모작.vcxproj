@@ -135,6 +135,9 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Bmp_Manager.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Enemy_1.h" />
+    <ClInclude Include="Enemy_2.h" />
+    <ClInclude Include="Enemy_Bullet.h" />
     <ClInclude Include="Key_Manager.h" />
     <ClInclude Include="Level_GamePlay.h" />
     <ClInclude Include="Define.h" />
@@ -158,6 +161,9 @@
     <ClCompile Include="1945모작.cpp" />
     <ClCompile Include="Bmp_Manager.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Enemy_1.cpp" />
+    <ClCompile Include="Enemy_2.cpp" />
+    <ClCompile Include="Enemy_Bullet.cpp" />
     <ClCompile Include="Key_Manager.cpp" />
     <ClCompile Include="Level_GamePlay.cpp" />
     <ClCompile Include="GameObject.cpp" />

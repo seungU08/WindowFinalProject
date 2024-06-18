@@ -1,6 +1,9 @@
 #pragma once
 #include "GameObject.h"
 
+static float Player_X;
+static float Player_Y;
+
 class CPlayer : public CGameObject
 {
 public:
@@ -24,6 +27,7 @@ public:
 	int		Get_Score() { return m_iScore; };
 	int		Get_Life() { return m_iLife; };
 	//void	Move_Player_Frame();
+	
 
 
 private:

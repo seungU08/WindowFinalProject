@@ -44,7 +44,8 @@ int CPlayer::Update()
 	++m_iScore;
 	Key_Input();
 	__super::Update_Rect();
-
+	Player_X = m_tInfo.fX;
+	Player_Y = m_tInfo.fY;
 	return OBJ_NOEVENT;
 }
 
@@ -103,7 +104,6 @@ void CPlayer::Key_Input()
 			m_iFrameCnt--;
 	}
 
-
 	if (CKey_Manager::Get_Instance()->Key_Pressing(VK_UP)) {
 		if (m_tInfo.fY > 0.f + m_tInfo.fCY / 2.f) {
 			m_tInfo.fY -= m_fSpeed;
@@ -124,9 +124,6 @@ void CPlayer::Key_Input()
 		m_dwShotCount = GetTickCount64();
 		
 	}
-
-	
-
 }
 
 void CPlayer::Shot()
